@@ -381,7 +381,7 @@ def render_email(
     # in order to get our headers properly encoded (with QP).
     message['Subject'] = Header(unicode(subject), 'ISO-8859-1')
     message['From'] = Header(unicode(from_email), 'ISO-8859-1')
-    message['To'] = Header(unicode(to), 'ISO-8859-1')
+    message['To'] = Header(unicode(to.replace(';', ',')), 'ISO-8859-1')
     if cc:
         message['Cc'] = Header(unicode(cc), 'ISO-8859-1')
 
